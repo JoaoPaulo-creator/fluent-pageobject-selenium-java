@@ -2,7 +2,7 @@ package detectos;
 
 import org.junit.Test;
 
-public class MayReturnOperatingSystem {
+public class MayDetectOperatingSystem {
 
     public String getOperatingSystem() {
         String operatingSystem = System.getProperty("os.name");
