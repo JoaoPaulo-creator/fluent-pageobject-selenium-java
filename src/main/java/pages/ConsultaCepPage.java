@@ -12,10 +12,13 @@ public class ConsultaCepPage extends BasePage {
     }
 
     @FindBy(id = "endereco")
-    WebElement campoEndereco;
+    protected WebElement campoEndereco;
 
     @FindBy(id = "btn_pesquisar")
-    WebElement btnPesquisar;
+    protected WebElement btnPesquisar;
+
+    @FindBy(className = "logo")
+    protected WebElement logoCorreios;
     
 
     public ConsultaCepPage informarEndereco(String logradouro){
@@ -27,5 +30,11 @@ public class ConsultaCepPage extends BasePage {
     public ResultadoPage clicarPesquisar(){        
         clicar(this.btnPesquisar);
         return new ResultadoPage(driver);
+    }
+
+    public TelaInicialCorreios clicarLogoCorreios(){
+        aguardarElementoEstarVisivel(logoCorreios);
+        clicar(logoCorreios);
+        return new TelaInicialCorreios(driver);
     }
 }
