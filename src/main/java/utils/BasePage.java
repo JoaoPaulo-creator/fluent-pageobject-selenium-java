@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import java.time.Duration;
 
 public class BasePage{
 
@@ -17,7 +18,7 @@ public class BasePage{
     }
 
     protected void aguardarElementoEstarVisivel(WebElement element){
-        new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(element));
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(element));
     }
 
     protected void escrever(WebElement element, String assunto){
@@ -30,7 +31,7 @@ public class BasePage{
 
     protected void aguardarElementoDesaparecer(WebElement element){
         try {
-            new WebDriverWait(driver, 10).until(ExpectedConditions.invisibilityOfElementLocated((By) element));
+            new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.invisibilityOfElementLocated((By) element));
             if(!element.isDisplayed()){
                 System.out.println("Elemento desapareceu");
             }

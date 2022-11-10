@@ -21,7 +21,7 @@ public abstract class SetupWebDriver {
     }
 
     @BeforeEach
-    public static void setupTest() {
+    void setupTest() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://buscacepinter.correios.com.br/app/endereco/index.php");
