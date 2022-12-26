@@ -8,37 +8,30 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
-public class BasePage{
+public class BasePage {
 
     protected WebDriver driver;
 
-    public BasePage(WebDriver driver){
+    public BasePage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
-    protected void aguardarElementoEstarVisivel(WebElement element){
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(element));
-    }
-
-    protected void escrever(WebElement element, String assunto){
-        element.sendKeys(assunto);
-    }
-
-    protected void clicar(WebElement botao){
+    protected void clicar(WebElement botao) {
         botao.click();
     }
 
-    protected void aguardarElementoDesaparecer(WebElement element){
+    protected void aguardarElementoDesaparecer(WebElement element) {
         try {
-            new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.invisibilityOfElementLocated((By) element));
-            if(!element.isDisplayed()){
+            new WebDriverWait(driver, Duration.ofSeconds(10))
+                    .until(ExpectedConditions.invisibilityOfElementLocated((By) element));
+            if (!element.isDisplayed()) {
                 System.out.println("Elemento desapareceu");
             }
         } catch (Exception e) {
             e.getMessage();
         }
-        
+
     }
-  
+
 }

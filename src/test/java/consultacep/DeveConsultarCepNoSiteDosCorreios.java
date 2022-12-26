@@ -5,15 +5,14 @@ import org.junit.jupiter.api.Test;
 import pages.ConsultaCepPage;
 import setupWebDriver.SetupWebDriver;
 
-
 public class DeveConsultarCepNoSiteDosCorreios extends SetupWebDriver {
 
     @Test
-    public void deveInformarUmEndereco(){
+    public void deveInformarUmEndereco() {
         ConsultaCepPage consultaCepPage = new ConsultaCepPage(driver);
 
-        String mensagemResultadoPesquisaConsultaCep = 
-                consultaCepPage.informarEndereco("Rua Professor Gabizo - até 130 - lado par")
+        String mensagemResultadoPesquisaConsultaCep = consultaCepPage
+                .informarEndereco("Rua Professor Gabizo - até 130 - lado par")
                 .clicarPesquisar()
                 .mensagemResultadoPesquisa();
 
